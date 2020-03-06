@@ -6,8 +6,10 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
+import {sync} from 'vuex-router-sync'
 
 Vue.config.productionTip = false
+const unsync = sync(store, router)
 
 new Vue({
   router,
@@ -15,3 +17,5 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+unsync()
